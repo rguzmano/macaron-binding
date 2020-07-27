@@ -15,6 +15,10 @@ func main() {
 		log.Info(mRequest)
 		w.WriteHeader(http.StatusOK)
 	})
+	m.Get("/test", binding.Bind(model.TestGetRequest{}), func(w http.ResponseWriter, mod model.TestGetRequest) {
+		log.Info(mod)
+		w.WriteHeader(http.StatusOK)
+	})
 
 	binding.AddRule(&binding.Rule{
 		IsMatch: func(rule string) bool {

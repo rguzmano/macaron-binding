@@ -9,8 +9,12 @@ import (
 )
 
 type TestRequest struct {
-	StringField 	string 	`json:"stringField" binding:"Required;Email;GmailValidation"`
-	NumberField		int		`json:"numberField" binding:"Range(1,10)"`
+	StringField string `json:"stringField" binding:"Required;Email;GmailValidation"`
+	NumberField int    `json:"numberField" binding:"Range(1,10)"`
+}
+
+type TestGetRequest struct {
+	Field1 string `form:"field1" binding:"Required"`
 }
 
 func (cf TestRequest) Error(ctx *macaron.Context, errs binding.Errors) {
