@@ -15,8 +15,8 @@ func main() {
 		log.Info(mRequest)
 		w.WriteHeader(http.StatusOK)
 	})
-	m.Get("/test", binding.Bind(model.TestGetRequest{}), func(w http.ResponseWriter, mod model.TestGetRequest) {
-		log.Info(mod)
+	m.Get("/test", binding.Bind(model.TestGetRequest{}), func(w http.ResponseWriter, mRequest model.TestGetRequest) {
+		log.Info(mRequest)
 		w.WriteHeader(http.StatusOK)
 	})
 
